@@ -14,3 +14,6 @@ button,.btn{cursor:pointer}.btn:focus-visible,a:focus-visible,button:focus-visib
 .heroTextOnly{display:block;height:auto;min-height:0;padding:82px 0 0;background:var(--ivory)}.heroTextOnly .heroCopy{width:min(1400px,calc(100% - 48px));min-height:680px;margin:auto;padding:110px 0 100px;background:transparent;justify-content:center}.heroTextOnly h1{max-width:1000px;font-size:clamp(72px,9vw,138px);margin:34px 0 40px}.heroTextOnly .lead{max-width:720px}
 @media(max-width:900px){.heroTextOnly{padding-top:72px}.heroTextOnly .heroCopy{width:min(100% - 28px,1400px);min-height:560px;padding:80px 0}.heroTextOnly h1{font-size:clamp(60px,14vw,100px)}}
 @media(max-width:560px){.heroTextOnly .heroCopy{width:calc(100% - 36px);min-height:500px;padding:68px 0}.heroTextOnly h1{font-size:clamp(54px,16vw,78px);line-height:.92;margin:28px 0 32px}}
+
+.pageTransition{animation:page-enter .48s cubic-bezier(.22,1,.36,1) both}.pageTransition main{overflow:clip}[id]{scroll-margin-top:100px}@keyframes page-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.pageTransition{animation:none}[id]{scroll-margin-top:80px}}
