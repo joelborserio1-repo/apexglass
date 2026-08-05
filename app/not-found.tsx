@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main className="statePage"><div className="shell"><div className="eyebrow">Page not found</div><h1 className="sectionTitle">That page is no longer here.</h1><p className="copy">Explore Apex services or return to the homepage.</p><div className="actions"><Link className="btn" href="/">Return home</Link><Link className="textLink" href="/services">View services</Link></div></div></main>}

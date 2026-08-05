@@ -1,3 +1,3 @@
-import type {Metadata} from 'next';import './globals.css';import './extras.css';import {Nav,Footer} from '@/components/site';
+import type {Metadata} from 'next';import './globals.css';import './extras.css';import {Nav} from '@/components/nav';import {Footer} from '@/components/site';
 export const metadata:Metadata={metadataBase:new URL('https://apexframelessglass.com.au'),title:{default:'Apex Frameless Glass | Newcastle Glazing','template':'%s | Apex Frameless Glass'},description:'Custom frameless shower screens, pool fencing, balustrades, splashbacks, mirrors and glazing across Newcastle and surrounding regions.',alternates:{canonical:'/'},openGraph:{siteName:'Apex Frameless Glass',type:'website'}};
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Nav/>{children}<Footer/></body></html>}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><a className="skipLink" href="#main-content">Skip to content</a><Nav/><div id="main-content">{children}</div><Footer/></body></html>}

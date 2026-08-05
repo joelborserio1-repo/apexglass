@@ -1,0 +1,2 @@
+'use client';import Link from 'next/link';
+export default function ErrorPage({reset}:{reset:()=>void}){return <main className="statePage"><div className="shell"><div className="eyebrow">Something went wrong</div><h1 className="sectionTitle">We couldn’t load this page.</h1><p className="copy">Please try again. If the problem continues, you can still send the Apex team an enquiry.</p><div className="actions"><button className="btn" onClick={reset}>Try again</button><Link className="textLink" href="/contact">Request a quote</Link></div></div></main>}
