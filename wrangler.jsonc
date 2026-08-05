@@ -20,9 +20,6 @@
     "ADMIN_EMAILS": "REPLACE_WITH_ADMIN_EMAILS",
     "INSTAGRAM_API_VERSION": "v24.0",
     "INSTAGRAM_API_BASE": "https://graph.instagram.com",
-    "INSTAGRAM_CACHE_MINUTES": "60",
-    "NEXT_PUBLIC_TURNSTILE_SITE_KEY": "REPLACE_WITH_TURNSTILE_SITE_KEY",
-    "QUOTE_TO_EMAIL": "hello@apexframelessglass.com.au",
-    "QUOTE_FROM_EMAIL": "Apex Website <website@apexframelessglass.com.au>"
+    "INSTAGRAM_CACHE_MINUTES": "60"
   }
 }

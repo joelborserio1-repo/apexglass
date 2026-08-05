@@ -7,7 +7,7 @@ Implemented the remaining application work from `CODEX_BRIEF.md`:
 - D1-driven homepage portfolio and service-page filtering
 - project detail pages with canonical/Open Graph metadata and related work
 - resilient Instagram cache fallback and admin sync diagnostic
-- Turnstile verification and Resend quote delivery
+- Web3Forms quote delivery with inline status feedback and bot protection
 - mobile navigation, focus states and reduced-motion handling
 
 Verified locally:
@@ -20,6 +20,6 @@ Verified locally:
 - unauthenticated admin API returned HTTP 401
 - invalid quote input returned HTTP 400
 
-Production remains intentionally undeployed. Replace the placeholder D1 ID, admin allowlist and Turnstile site key; authenticate Wrangler; configure R2 public delivery and secrets; apply remote migrations; then deploy.
+Production deployment requires the admin allowlist and R2 public delivery URL to be configured. The quote form uses its approved Web3Forms access key and does not require Worker email secrets.
 
 `npm audit --omit=dev` currently reports advisories inherited from the supported Next.js 15/OpenNext/Wrangler dependency chain. npm's suggested automatic remediation crosses major versions, so it was not applied silently. Reassess a coordinated Next.js 16 upgrade before launch.

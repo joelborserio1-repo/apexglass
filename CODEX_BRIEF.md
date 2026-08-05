@@ -22,7 +22,7 @@ Finish and deploy the approved **Option 1 / V3** Apex Frameless Glass website on
 7. Add project filtering to `/services#projects` without pill-shaped controls.
 8. Keep Instagram as a secondary feed, never the source of truth for portfolio projects.
 9. Add graceful handling for expired Instagram tokens and an admin diagnostic showing last successful sync.
-10. Add Cloudflare Turnstile and email delivery to the quote form.
+10. Connect the quote form to the approved Web3Forms delivery endpoint.
 11. Validate image type, dimensions and size server-side. Strip unsafe filenames.
 12. Protect every `/api/admin/*` route by Cloudflare Access email allowlist.
 13. Verify keyboard accessibility, reduced motion and mobile layouts.

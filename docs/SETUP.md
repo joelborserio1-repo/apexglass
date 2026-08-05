@@ -82,17 +82,8 @@ The `/api/instagram` route caches results in D1 for 60 minutes. The main portfol
 - Add audit logging for admin changes.
 - Add draft preview and project detail pages.
 
-## 11. Quote form delivery and spam protection
-Create a Turnstile widget for `apexframelessglass.com.au`. Make the public site key available at build time as `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, and store its secret with:
-```bash
-npx wrangler secret put TURNSTILE_SECRET_KEY
-```
-
-Verify the sending domain in Resend, then set:
-```bash
-npx wrangler secret put RESEND_API_KEY
-```
-Set `QUOTE_TO_EMAIL` and `QUOTE_FROM_EMAIL` in `wrangler.jsonc`. The `From` address must use the verified sending domain.
+## 11. Quote form delivery
+The public quote form submits directly to Web3Forms using the approved access key in `components/quote-form.tsx`. Confirm the destination email inside the Web3Forms dashboard and submit one production test after deployment. No Worker email secrets are required.
 
 ## 12. Final production steps
 Replace every `REPLACE_*` value in `wrangler.jsonc`, add production secrets, and run:
