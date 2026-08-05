@@ -9,7 +9,7 @@
   "d1_databases": [{
     "binding": "DB",
     "database_name": "apex-frameless-db",
-    "database_id": "REPLACE_AFTER_WRANGLER_D1_CREATE"
+    "database_id": "f78cd092-5272-43c3-a3a5-ed866660cedf"
   }],
   "r2_buckets": [{
     "binding": "PORTFOLIO_BUCKET",
