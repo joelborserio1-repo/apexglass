@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "apex-frameless-glass",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-08-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "apex-frameless-db",
+    "database_id": "REPLACE_AFTER_WRANGLER_D1_CREATE"
+  }],
+  "r2_buckets": [{
+    "binding": "PORTFOLIO_BUCKET",
+    "bucket_name": "apex-portfolio"
+  }],
+  "vars": {
+    "SITE_URL": "https://apexframelessglass.com.au",
+    "ADMIN_EMAILS": "REPLACE_WITH_ADMIN_EMAILS",
+    "INSTAGRAM_API_VERSION": "v24.0",
+    "INSTAGRAM_API_BASE": "https://graph.instagram.com",
+    "INSTAGRAM_CACHE_MINUTES": "60",
+    "NEXT_PUBLIC_TURNSTILE_SITE_KEY": "REPLACE_WITH_TURNSTILE_SITE_KEY",
+    "QUOTE_TO_EMAIL": "hello@apexframelessglass.com.au",
+    "QUOTE_FROM_EMAIL": "Apex Website <website@apexframelessglass.com.au>"
+  }
+}

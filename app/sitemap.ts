@@ -1,0 +1,1 @@
+import type {MetadataRoute} from 'next';export default function sitemap():MetadataRoute.Sitemap{return['','/services','/contact'].map(p=>({url:`https://apexframelessglass.com.au${p}`,lastModified:new Date()}))}

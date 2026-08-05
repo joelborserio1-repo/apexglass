@@ -1,0 +1,3 @@
+'use client';
+import { useEffect,useState } from 'react';
+export default function InstagramFeed(){const [items,setItems]=useState<any[]>([]);useEffect(()=>{fetch('/api/instagram').then(r=>r.json()).then(d=>setItems((d.items||[]).filter((x:any)=>x.media_type!=='VIDEO').slice(0,6))).catch(()=>{})},[]);if(!items.length)return null;return <section className="section instagram"><div className="shell"><div className="eyebrow">Latest from Instagram</div><div className="instagramGrid">{items.map(i=><a key={i.id} href={i.permalink} target="_blank" rel="noreferrer"><img src={i.thumbnail_url||i.media_url} alt={i.caption?.slice(0,100)||'Apex Frameless Glass project'}/></a>)}</div></div></section>}

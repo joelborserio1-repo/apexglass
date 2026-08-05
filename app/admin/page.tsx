@@ -1,0 +1,3 @@
+import {requireAdmin} from '@/lib/auth';import {listProjects} from '@/lib/projects';import AdminPanel from './panel';
+export const dynamic='force-dynamic';
+export default async function AdminPage(){try{const user=await requireAdmin();const projects=await listProjects(true);return <main className="adminPage"><div className="shell"><div className="eyebrow">Apex website administration</div><h1>Portfolio manager</h1><p className="copy">Signed in as {user.email}. Changes to published projects appear on the public website.</p><AdminPanel initialProjects={projects}/></div></main>}catch{return <main className="adminPage"><div className="shell"><h1>Access required</h1><p>Sign in through Cloudflare Access using an approved email address.</p></div></main>}}
