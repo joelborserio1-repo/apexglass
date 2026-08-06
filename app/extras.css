@@ -17,3 +17,6 @@ button,.btn{cursor:pointer}.btn:focus-visible,a:focus-visible,button:focus-visib
 
 .pageTransition{animation:page-enter .48s cubic-bezier(.22,1,.36,1) both}.pageTransition main{overflow:clip}[id]{scroll-margin-top:100px}@keyframes page-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.pageTransition{animation:none}[id]{scroll-margin-top:80px}}
+
+.brandLogoLink{display:inline-flex;align-items:center;flex:0 0 auto}.brandLogo{display:block;background:#000;object-fit:contain}.brandLogoHeader{width:64px;height:64px}.brandLogoFooter{width:190px;height:auto}.brandLogoLink:focus-visible{outline-offset:4px}
+@media(max-width:900px){.brandLogoHeader{width:54px;height:54px}.brandLogoFooter{width:170px}}
