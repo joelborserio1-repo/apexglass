@@ -20,17 +20,21 @@ const work=[
 
 export function WorkSlider(){
   const track=useRef<HTMLDivElement>(null);
+  const drag=useRef({active:false,startX:0,startScroll:0});
   const [active,setActive]=useState(0);
   const move=(direction:number)=>{const el=track.current;if(!el)return;const cards=el.querySelectorAll<HTMLElement>('.workSlide');const step=cards[1]?cards[1].offsetLeft-cards[0].offsetLeft:(cards[0]?.offsetWidth??el.clientWidth);el.scrollBy({left:direction*step,behavior:'smooth'});};
   const update=()=>{const el=track.current;const cards=el?.querySelectorAll<HTMLElement>('.workSlide');if(!el||!cards?.length)return;const step=cards[1]?cards[1].offsetLeft-cards[0].offsetLeft:cards[0].offsetWidth;setActive(Math.min(work.length-1,Math.max(0,Math.round(el.scrollLeft/step))));};
+  const startDrag=(event:React.PointerEvent<HTMLDivElement>)=>{if(event.pointerType==='mouse'&&event.button!==0)return;const el=track.current;if(!el)return;drag.current={active:true,startX:event.clientX,startScroll:el.scrollLeft};el.setPointerCapture(event.pointerId);el.classList.add('isDragging');};
+  const continueDrag=(event:React.PointerEvent<HTMLDivElement>)=>{if(!drag.current.active||!track.current)return;event.preventDefault();track.current.scrollLeft=drag.current.startScroll-(event.clientX-drag.current.startX);};
+  const stopDrag=(event:React.PointerEvent<HTMLDivElement>)=>{const el=track.current;if(!el||!drag.current.active)return;drag.current.active=false;if(el.hasPointerCapture(event.pointerId))el.releasePointerCapture(event.pointerId);el.classList.remove('isDragging');update();};
   return <section className="workShowcase section" id="projects" aria-labelledby="work-title">
     <div className="shell workShowcaseHead">
       <div><div className="eyebrow">Selected installations · 01—12</div><h2 className="sectionTitle" id="work-title">Previous work,<br/><span className="serif">clearly considered.</span></h2></div>
       <div className="workControls"><span className="workCounter" aria-live="polite">{String(active+1).padStart(2,'0')} / {String(work.length).padStart(2,'0')}</span><button type="button" onClick={()=>move(-1)} disabled={active===0} aria-label="View previous project">←</button><button type="button" onClick={()=>move(1)} disabled={active===work.length-1} aria-label="View next project">→</button></div>
     </div>
-    <div className="workTrack" ref={track} onScroll={update} tabIndex={0} aria-label="Previous project gallery">
+    <div className="workTrack" ref={track} onScroll={update} onPointerDown={startDrag} onPointerMove={continueDrag} onPointerUp={stopDrag} onPointerCancel={stopDrag} tabIndex={0} aria-label="Previous project gallery">
       {work.map((item,index)=><figure className="workSlide" key={item.src}>
-        <div className="workSlideImage"><Image src={item.src} alt={item.title} fill sizes="(max-width: 700px) 84vw, (max-width: 1200px) 66vw, 760px"/></div>
+        <div className="workSlideImage"><Image src={item.src} alt={item.title} fill sizes="(max-width: 700px) 84vw, (max-width: 1200px) 66vw, 760px" draggable={false}/></div>
         <figcaption><span>{String(index+1).padStart(2,'0')}</span><div><strong>{item.title}</strong><small>{item.category}</small></div></figcaption>
       </figure>)}
     </div>
