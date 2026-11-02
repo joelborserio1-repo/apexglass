@@ -83,7 +83,7 @@ The `/api/instagram` route caches results in D1 for 60 minutes. The main portfol
 - Add draft preview and project detail pages.
 
 ## 11. Quote form delivery
-The public quote form submits directly to Web3Forms using the approved access key in `components/quote-form.tsx`. Confirm the destination email inside the Web3Forms dashboard and submit one production test after deployment. No Worker email secrets are required.
+The public quote form submits directly to Web3Forms using the approved access key in `components/quote-form.tsx`. Submissions are delivered to the inbox registered with this key in Web3Forms (mason_weary@outlook.com). Confirm that in the Web3Forms dashboard and submit one production test after deployment. No Worker email secrets are required.
 
 ## 12. Final production steps
 Replace every `REPLACE_*` value in `wrangler.jsonc`, add production secrets, and run:
